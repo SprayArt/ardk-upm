@@ -18,7 +18,7 @@ __strong RegisterPlugin *_instance;
     _instance = [RegisterPlugin new];
     [[NSNotificationCenter defaultCenter] addObserver:_instance
                                              selector:@selector(applicationDidFinishLaunching:)
-                                                 name:UIApplicationDidFinishLaunchingNotification
+                                                 name:@"UnityReady"
                                                object:nil];
 }
 -(void)applicationDidFinishLaunching:(NSNotification*) notification
