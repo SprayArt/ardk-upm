@@ -14,16 +14,16 @@ __strong RegisterPlugin *_instance;
 @implementation RegisterPlugin
 +(void)load
 {
-    NSLog(@"[Override_iOS load]");
+    NSLog(@"[NianticLightship load]");
     _instance = [RegisterPlugin new];
     [[NSNotificationCenter defaultCenter] addObserver:_instance
-                                             selector:@selector(applicationDidFinishLaunching:)
-                                                 name:@"UnityReady"
+                                             selector:@selector(unityWillStart:)
+                                                 name:@"UnityWillStart"
                                                object:nil];
 }
--(void)applicationDidFinishLaunching:(NSNotification*) notification
+-(void)unityWillStart:(NSNotification*) notification
 {
-    NSLog(@"[Override_iOS applicationDidFinishLaunching:%@]", notification);
+    NSLog(@"[NianticLightship unityWillStart:%@]", notification);
     UnityRegisterRenderingPluginV5(&UnityPluginLoad, &UnityPluginUnload);
 }
 @end
